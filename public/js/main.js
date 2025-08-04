@@ -95,32 +95,37 @@ document.addEventListener('DOMContentLoaded', () => {
     console.warn('Scroll-to-top button not found');
   }
 
-  // Home Page: Typing Animation
+  // Home Page: Enhanced Typing Animation
   if (document.querySelector('.section-home')) {
     const typingText = document.querySelector('.typing-text');
     if (typingText) {
       console.log('Typing text element found, starting animation');
       const text = "I am Subhash, DevOps and Cloud Expert";
       typingText.textContent = '';
-      gsap.to(typingText, {
-        width: `${text.length}ch`,
-        duration: 2,
-        ease: `steps(${text.length})`,
-        delay: 0.5,
-        onStart: () => {
-          typingText.textContent = text;
-        },
+      const letters = text.split('').map(char => {
+        const span = document.createElement('span');
+        span.textContent = char;
+        typingText.appendChild(span);
+        return span;
+      });
+      const cursor = document.createElement('span');
+      cursor.className = 'cursor';
+      cursor.textContent = '|';
+      typingText.appendChild(cursor);
+      gsap.set(letters, { opacity: 0, scale: 0, color: '#fff' });
+      gsap.to(letters, {
+        opacity: 1,
+        scale: 1,
+        color: '#00c4b4',
+        duration: 0.05,
+        stagger: 0.1,
+        ease: 'back.out(1.7)',
         onComplete: () => {
           console.log('Typing animation completed');
-          gsap.to(typingText, {
-            borderColor: 'transparent',
-            duration: 0.5,
-            repeat: -1,
-            yoyo: true,
-          });
+          typingText.classList.add('glow');
+          gsap.to(cursor, { opacity: 0, duration: 0.5, repeat: -1, yoyo: true });
         },
       });
-      gsap.from(typingText, { opacity: 0, scale: 0.8, duration: 1, ease: 'power3.out', delay: 0.3 });
       gsap.from('.cta-button', { duration: 1.2, scale: 0.8, opacity: 0, delay: 2.8, ease: 'elastic.out(1, 0.5)' });
       gsap.to('.parallax-bg', {
         y: 100,
@@ -199,80 +204,4 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.querySelector('.section-resume')) {
     gsap.from('.resume-content p', { duration: 1, opacity: 0, y: 50, ease: 'power3.out', scrollTrigger: { trigger: '.section-resume', start: 'top 80%' } });
     gsap.from('.resume-button', { duration: 1, scale: 0.8, opacity: 0, delay: 0.3, ease: 'elastic.out(1, 0.5)', scrollTrigger: { trigger: '.section-resume', start: 'top 80%' } });
-    gsap.from('.resume-preview', { duration: 1, opacity: 0, y: 50, delay: 0.6, ease: 'power3.out', scrollTrigger: { trigger: '.section-resume', start: 'top 80%' } });
-  }
-
-  // Contact Page: Form Animations
-  if (document.querySelector('.section-contact')) {
-    gsap.from('#contact-form input, #contact-form textarea, #contact-form button', {
-      duration: 1,
-      opacity: 0,
-      y: 20,
-      stagger: 0.1,
-      ease: 'power2.out',
-      scrollTrigger: { trigger: '.section-contact', start: 'top 80%' },
-    });
-    gsap.from('.section-contact p', {
-      duration: 1,
-      opacity: 0,
-      y: 50,
-      ease: 'power3.out',
-      scrollTrigger: { trigger: '.section-contact', start: 'top 80%' },
-    });
-  }
-
-  // Hover Effects
-  document.querySelectorAll('.skill-bar, .timeline-item, .resume-button, .profile-img, .cta-button').forEach(item => {
-    item.addEventListener('mouseenter', () => {
-      gsap.to(item, { scale: 1.05, duration: 0.3, ease: 'power2.out' });
-    });
-    item.addEventListener('mouseleave', () => {
-      gsap.to(item, { scale: 1, duration: 0.3, ease: 'power2.out' });
-    });
-  });
-
-  // Contact Form Submission
-  const contactForm = document.getElementById('contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const formData = new FormData(contactForm);
-      const submitButton = contactForm.querySelector('button');
-      gsap.to(submitButton, { scale: 0.9, duration: 0.2 });
-      try {
-        const response = await fetch('/api/contact', {
-          method: 'POST',
-          body: JSON.stringify(Object.fromEntries(formData)),
-          headers: { 'Content-Type': 'application/json' },
-        });
-        if (response.ok) {
-          alert('Message sent successfully!');
-          contactForm.reset();
-          gsap.to(submitButton, { scale: 1, duration: 0.2 });
-        } else {
-          alert('Failed to send message. Please try again.');
-          gsap.to(submitButton, { scale: 1, duration: 0.2 });
-        }
-      } catch (error) {
-        alert('An error occurred. Please try again later.');
-        gsap.to(submitButton, { scale: 1, duration: 0.2 });
-      }
-    });
-  }
-
-  // Tawk.to Widget Animation
-  if (typeof Tawk_API !== 'undefined') {
-    Tawk_API.onLoad = function () {
-      const chatWidget = document.querySelector('#tawkto-overlay');
-      if (chatWidget) {
-        gsap.from(chatWidget, {
-          duration: 1,
-          opacity: 0,
-          scale: 0.5,
-          ease: 'back.out(1.7)',
-          delay: 1,
-        });
-      }
-    };
-  }
-});
+    gsap.from('.resume-preview', { duration: 1, opacity: 0, y
