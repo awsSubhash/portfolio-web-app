@@ -31,24 +31,21 @@
 
   <main>
     <section id="about" class="section-about">
-      <h2>About Me</h2>
+      <h2 class="text-3xl font-bold text-center mb-6">About Me</h2>
       <div class="about-content">
-        <!-- ✅ Local image path (served from public/images/profile.jpg) -->
-        <img src="/images/profile.jpg" alt="Subhash Kumar Singh Profile" class="profile-img" />
-
-        <p>AWS Cloud Engineer with 3 years of hands-on experience in architecting and automating cloud-native solutions on AWS using services like EC2, S3, Lambda, RDS, and VPC. Proficient in IaC (Terraform, CloudFormation), CI/CD (Jenkins, GitLab, ArgoCD), monitoring (CloudWatch, Grafana, New Relic), and scripting (Bash, Python). AWS Certified Solutions Architect – Associate.</p>
-        
+        <img src="/images/profile.jpg" alt="Subhash Kumar Singh Profile" class="profile-img mx-auto mb-6" loading="lazy" />
+        <p class="mb-4 text-lg">AWS Cloud Engineer with 3 years of hands-on experience in architecting and automating cloud-native solutions on AWS using services like EC2, S3, Lambda, RDS, and VPC. Proficient in IaC (Terraform, CloudFormation), CI/CD (Jenkins, GitLab, ArgoCD), monitoring (CloudWatch, Grafana, New Relic), and scripting (Bash, Python). AWS Certified Solutions Architect – Associate.</p>
         <div class="timeline">
           <div class="timeline-item" data-year="2024">
-            <h3>BCA, Tilak University</h3>
+            <h3 class="text-xl font-semibold">BCA, Tilak University</h3>
             <p>Bachelor’s Degree in Computer Application with IMS.</p>
           </div>
           <div class="timeline-item" data-year="2024">
-            <h3>AWS Certified Solutions Architect – Associate</h3>
+            <h3 class="text-xl font-semibold">AWS Certified Solutions Architect – Associate</h3>
             <p>Validation Number: 9f009caa08794759aecbe8dced72fc88</p>
           </div>
           <div class="timeline-item" data-year="2022">
-            <h3>Diploma in Network Administration</h3>
+            <h3 class="text-xl font-semibold">Diploma in Network Administration</h3>
             <p>Completed specialized training in network management.</p>
           </div>
         </div>
@@ -58,22 +55,17 @@
 
   <button class="scroll-to-top" aria-label="Scroll to top">↑</button>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollReveal/4.0.9/scrollreveal.min.js"></script>
-  <script src="/js/main.js"></script>
-
-  <!-- Tawk.to Live Chat Script -->
+  <script type="module" src="/js/main.js"></script>
   <script type="text/javascript">
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function () {
-      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-      s1.async = true;
-      s1.src = 'https://embed.tawk.to/68903a44b40fb6192870a18f/1j1pm77m1';
-      s1.charset = 'UTF-8';
-      s1.setAttribute('crossorigin', '*');
-      s0.parentNode.insertBefore(s1, s0);
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/68903a44b40fb6192870a18f/1j1pm77m1';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
     })();
   </script>
 </body>
 </html>
-
