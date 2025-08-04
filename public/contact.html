@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Subhash Kumar Singh - Contact Information">
+  <meta name="keywords" content="Subhash Kumar Singh, AWS, DevOps, contact">
+  <meta name="author" content="Subhash Kumar Singh">
+  <title>Subhash Kumar Singh - Contact</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" href="/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="page-transition"></div>
+  <header class="sticky-header">
+    <nav class="nav-menu">
+      <div class="logo">Subhash Kumar Singh</div>
+      <ul class="nav-links">
+        <li><a href="/home.html" class="nav-link">Home</a></li>
+        <li><a href="/about.html" class="nav-link">About</a></li>
+        <li><a href="/skills.html" class="nav-link">Skills</a></li>
+        <li><a href="/experience.html" class="nav-link">Experience</a></li>
+        <li><a href="/resume.html" class="nav-link">Resume</a></li>
+        <li><a href="/contact.html" class="nav-link active">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="contact" class="section-contact">
+      <h2>Contact Me</h2>
+      <p>Email: <a href="mailto:subhashkumar45555828@gmail.com">subhashkumar45555828@gmail.com</a></p>
+      <p>Phone: <a href="tel:+919661782736">9661782736</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/subhash-kumar-singh-798511141" target="_blank">linkedin.com/in/subhash-kumar-singh</a></p>
+      <p>GitHub: <a href="https://github.com/awsSubhash" target="_blank">github.com/awsSubhash</a></p>
+      <form id="contact-form" action="/api/contact" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="cta-button">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <button class="scroll-to-top" aria-label="Scroll to top">↑</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollReveal/4.0.9/scrollreveal.min.js"></script>
+  <script src="/js/main.js"></script>
+  <!-- Tawk.to Live Chat Script -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/68903a44b40fb6192870a18f/1j1pm77m1';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+</body>
+</html>
